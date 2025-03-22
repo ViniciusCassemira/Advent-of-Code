@@ -1,4 +1,4 @@
-const input = `17633   15737
+17633   15737
 79440   47531
 44767   73309
 86871   26386
@@ -997,55 +997,4 @@ const input = `17633   15737
 81706   98995
 65022   87326
 80970   46974
-78758   79469`;
-
-const esquerda = [];
-const direita = [];
-let sum = 0;
-
-function somarDistancia(num1,num2){
-    if(num1 > num2){
-        return num1 - num2;  
-    } 
-    else if(num1 < num2){
-        return num2 - num1;
-    }
-    else{
-        return 0;
-    }
-} 
-
-function bubbleSort(lista){
-    const tam = lista.length;
-    for(let i = 0; i < tam; i++){
-        for(let j = 0; j < tam - 1 - i; j++){
-            if (lista[j] > lista[j+1]){
-                let temp = lista[j+1];
-                lista[j+1] = lista[j];
-                lista[j] = temp;
-            }
-        }
-    }
-    return lista
-}
-
-
-let inputFormat = input.split("\n");
-
-for (const linha in inputFormat){
-    let temp = inputFormat[linha].split("   ").map(Number);
-    
-    esquerda.push(temp[0]);
-    direita.push(temp[1]);
-
-}
-
-bubbleSort(esquerda);
-bubbleSort(direita);
-
-for(let i = 0; i < esquerda.length; i++){
-    sum += somarDistancia(esquerda[i],direita[i]);
-}
-
-
-console.log(sum);
+78758   79469
